@@ -1,0 +1,1266 @@
+/* Common start */
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.section-body {
+    margin: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Common end */
+
+
+
+/* Nav start */
+
+#navbar-wrap {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 101;
+    transition: top 500ms ease-in-out;
+}
+
+#navbar {
+    display: grid;
+    min-height: 90px;
+    grid-auto-flow: column;
+    background-color: #fcfcfc;
+    grid-gap: 1.5em;
+    padding: 0 40px;
+    box-shadow: -1px 4px 15px 0px rgba(209, 205, 209, 0.5);
+    transition: box-shadow 500ms ease-in-out;
+}
+
+#logo {
+    display: grid;
+    justify-content: start;
+    align-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.logo img {
+    width: 12rem;
+    transform: translateY(5%);
+}
+
+#links {
+    display: flex;
+    justify-content: right;
+    gap: 1.5em;
+    align-items: center;
+}
+
+#links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 400;
+    font-size: 1.15rem;
+    transition: 0.3s;
+}
+
+#links a:hover {
+    color: #318D44;
+}
+
+#links a:last-of-type {
+    background: #318D44;
+    border-radius: 2rem;
+    color: white;
+    padding: 0.9rem 1.8rem;
+    transition: background 300ms ease-in-out;
+}
+
+#links a:last-of-type:hover {
+    background: black;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 20px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    color: #818181;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #fff;
+}
+
+.sidenav a:last-of-type {
+    background: #318D44;
+    color: white;
+    padding-top: 1.2rem;
+    transition: background 0.3s;
+}
+
+.sidenav a:last-of-type:hover {
+    background: #3da451;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media (min-width:100px) and (max-width: 1050px) {
+
+    #links,
+    .mobile-menu {
+        display: none;
+    }
+
+    #logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        transform: translateY(3%);
+        display: flex;
+        width: 100%;
+        padding-right: 15px;
+        justify-content: center;
+    }
+
+    .logo img {
+        transform: translateY(-0.17rem);
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .mobile-btn {
+        display: none;
+    }
+}
+
+/* Nav end */
+
+
+/* Header start */
+
+#header-wrap {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: center;
+    width: 90rem;
+    gap: 2vw;
+}
+
+#header-text {
+    margin-top: 1.5rem;
+}
+#objectives{
+    color: #318D44;
+    font-weight: 400;
+    
+}
+#bonjour {
+    color: #318D44;
+    font-weight: 500;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#welcome {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+#geeksforgeeks {
+    color: #318D44;
+    font-weight: 900;
+}
+
+#description {
+    line-height: 1.5rem;
+    text-align: justify;
+}
+
+#header-img img {
+    width: 50vw;
+    max-width: 900px;
+}
+
+@media screen and (max-width:980px) {
+    #header-wrap {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1.5rem;
+        width: auto;
+    }
+
+    #header-img img {
+        margin-top: 2rem;
+        width: 100%;
+        max-width: none;
+    }
+
+    #welcome {
+        font-size: 2.4rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    #header-text {
+        margin-top: 0;
+    }
+}
+
+/* Header end */
+
+
+
+/* Events start  */
+
+.swiper-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    background-image: url(https://cdn.jsdelivr.net/gh/GfG-IIIT-Bh/GfG-IIIT-Bh.github.io/assets/section-bg.webp);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 66rem; /* increased from 56rem */
+}
+
+.events-head {
+    color: white;
+    font-weight: 900;
+    font-size: 3.6rem; /* slightly bigger heading */
+    text-align: center;
+    margin: 0;
+    transform: translateY(-50px);
+    position: relative;
+    z-index: 3;
+    transform: translateY(12px); /* move heading down slightly */
+    margin-bottom: 0.6rem;
+}
+
+#events-head-img {
+    width: 46rem; /* larger hero image */
+    transform: rotate(-2deg) translateY(-3.2rem);
+    position: relative;
+    z-index: 3;
+    transform: rotate(-2deg) translateY(18px); /* move live graphic down */
+    margin-top: 0.4rem;
+    pointer-events: none;
+}
+
+.swiper {
+    height: 36rem; /* a bit taller carousel */
+    width: 92rem;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.swiper-pagination {
+    transform: translate(-4.4rem, -5.5rem) !important;
+}
+
+.swiper-pagination-bullet {
+    height: 20px !important;
+    width: 20px !important;
+    background: white !important;
+    opacity: 0.3 !important;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1 !important;
+}
+
+@media screen and (max-width:1500px) {
+    .swiper {
+        height: calc(80vw / 2);
+        width: 80vw;
+    }
+
+    .swiper-body {
+        height: calc(80vw / 2 + 28rem); /* increased offset to keep banner taller */
+    }
+
+    #events-head-img {
+        width: 42rem;
+        transform: rotate(-2deg) translateY(-2.8rem);
+    }
+
+    .events-head { transform: translateY(-44px); }
+}
+
+@media screen and (max-width:900px) {
+    .swiper {
+        height: calc(100vw - 2rem);
+        width: calc(100vw - 2rem);
+    }
+
+    /* Keep extra vertical space so the banner appears bigger on phones */
+    .swiper-body {
+        height: calc(100vw - 2rem + 28rem);
+        background-position: center top;
+        padding-top: calc(6.5rem + 4vw);
+    }
+
+    #events-head-img {
+        width: 95vw;
+        max-width: 42rem;
+        transform: rotate(-2deg) translateY(28px); /* more downward shift on phones */
+    }
+
+    .events-head {
+        font-size: 3.3rem;
+        transform: translateY(18px);
+    }
+}
+
+/* Tweak: move LIVE EVENTS slightly up and make poster full-width / bigger */
+.events-head {
+    position: relative;
+    z-index: 4;
+    transform: translateY(-18px) !important; /* raise heading slightly */
+    margin-bottom: 0.6rem;
+}
+
+#events-head-img {
+    position: relative;
+    z-index: 5;
+    transform: rotate(-2deg) translateY(-28px) !important; /* raise live graphic */
+    margin-top: 0;
+    pointer-events: none;
+    width: 90vw;
+    max-width: 720px; /* adjust for desktop */
+}
+
+/* Bring poster closer and make it fill available width */
+.swiper-body {
+    padding-top: 1.5rem; /* reduce gap so poster sits clearly below the live graphic */
+}
+
+.swiper {
+    width: 100% !important;
+    max-width: 1100px;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    margin-top: 0.8rem;
+    z-index: 1;
+}
+
+/* ensure slides scale and cover the poster area */
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: inherit;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width:900px) {
+    #events-head-img {
+        transform: rotate(-2deg) translateY(-18px) !important;
+        width: 95vw;
+        max-width: none;
+    }
+    .events-head {
+        transform: translateY(-12px) !important;
+        font-size: 3.3rem;
+    }
+    .swiper {
+        width: calc(100vw - 2rem) !important;
+        height: calc((100vw - 2rem) * 9 / 16) !important;
+        aspect-ratio: auto;
+    }
+    .swiper-body {
+        padding-top: 1rem;
+        height: calc((100vw - 2rem) * 9 / 16 + 6rem);
+    }
+}
+
+/* Single clickable poster (replaces swiper) */
+.event-poster {
+    width: min(1100px, 94vw);
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 8;
+    padding-top: 1rem;
+    display: block;
+}
+
+/* make poster fill available width and keep good aspect on all screens */
+.event-poster .event-link {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    transition: transform .25s ease;
+}
+.event-poster .event-link:hover { transform: translateY(-6px); }
+
+.event-poster .event-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+/* if you still have .swiper-body set to full-screen, ensure poster positions nicely */
+.swiper-body { 
+    /* keep existing full-screen rules (if any) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* mobile adjustments */
+@media screen and (max-width:900px) {
+    .event-poster { width: calc(100vw - 2rem); padding-top: 0.6rem; }
+    .event-poster .event-link img { aspect-ratio: auto; height: auto; }
+}
+@media screen and (max-width:420px) {
+    .events-head { top: 2.4vh; }
+    #events-head-img { top: calc(2.4vh + 2.8rem); width: 96vw; }
+}
+  
+/* Events end */
+
+
+/* Team start  */
+
+.our-team-head {
+    color: black;
+    font-weight: 900;
+    font-size: 3rem;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.our-team-head>span {
+    color: #318D44;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.our-team {
+    width: 23rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.our-team .picture {
+    display: inline-block;
+    height: 130px;
+    width: 130px;
+    z-index: 1;
+    position: relative;
+    margin-top: 40px;
+}
+
+.our-team .picture::before {
+    content: "";
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    background-color: #318D44;
+    position: absolute;
+    bottom: 135%;
+    right: 0;
+    left: 0;
+    opacity: 0.9;
+    transform: scale(3);
+    transition: all 0.3s linear 0s;
+}
+
+.our-team:hover .picture::before {
+    height: 100%;
+}
+
+.our-team .picture::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #318D44;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.our-team .picture img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
+}
+
+.our-team:hover .picture img {
+    box-shadow: 0 0 0 14px #f7f5ec;
+    transform: scale(0.7);
+}
+
+.our-team .name {
+    margin: 20px 0 3px 0;
+    font-size: 1.5rem;
+}
+
+.our-team .title {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    color: #4e5052;
+    text-transform: capitalize;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.our-team .social {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #318D44;
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    transition: all 0.5s ease 0s;
+}
+
+.our-team:hover .social {
+    bottom: 0;
+}
+
+.our-team .social li {
+    display: inline-block;
+}
+
+.our-team .social li a {
+    display: block;
+    padding: 10px;
+    font-size: 17px;
+    color: white;
+    text-decoration: none;
+}
+
+.our-team .social li a:hover {
+    color: #318D44;
+    background-color: #f7f5ec;
+}
+
+/* Crew layout: 5 per row on wide screens */
+.team-members.crew {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(160px, 1fr)) !important;
+    gap: 32px !important;
+    justify-items: center;
+    align-items: start;
+    padding: 28px 60px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* make each card a normal grid cell and allow absolute social badge */
+.team-members.crew .our-team {
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible;
+}
+
+/* remove semicircle decorations that were added with pseudo elements */
+.team-members.crew .our-team .picture::before,
+.team-members.crew .our-team .picture::after {
+    display: none !important;
+    content: none !important;
+    height: 0 !important;
+}
+
+/* --- Replace crew-avatar overrides so crew images use the same decorative circle as other team cards --- */
+
+/* Ensure crew avatars follow the default .our-team .picture styles */
+.team-members.crew .our-team .picture {
+    display: block;
+    height: 120px;            /* increased from 100px */
+    width: 120px;             /* increased from 100px */
+    z-index: 1;
+    position: relative;
+    margin: 26px auto 0;      /* keep centered */
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+/* semicircle hover decoration adjusted for new size */
+.team-members.crew .our-team .picture::before {
+    content: "";
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    background-color: #318D44;
+    position: absolute;
+    bottom: 130%;
+    right: 0;
+    left: 0;
+    opacity: 0.9;
+    transform: scale(2.6);
+    transition: all 0.3s linear 0s;
+}
+.team-members.crew .our-team:hover .picture::before {
+    height: 100%;
+}
+
+/* background circle behind avatar */
+.team-members.crew .our-team .picture::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #318D44;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* make image fill the circular frame and crop uniformly */
+.team-members.crew .our-team .picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.45s ease 0s;
+}
+.team-members.crew .our-team:hover .picture img {
+    box-shadow: 0 0 0 14px #f7f5ec;
+    transform: scale(0.78);
+}
+
+/* adjust spacing so layout remains balanced with larger avatars */
+.team-members.crew .our-team .team-content {
+    padding-top: 6px;
+    padding-bottom: 22px;
+}
+
+/* Remove social / LinkedIn banner for campus crew cards */
+.team-members.crew .our-team .social,
+.team-members.crew .our-team .social * ,
+.team-members.crew .our-team .social::before,
+.team-members.crew .our-team .social::after {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+/* ensure card layout stays consistent after hiding socials */
+.team-members.crew .our-team .team-content {
+    padding-bottom: 1.5rem; /* adjust if needed */
+}
+
+/* Center Execution crew cards */
+.team-members.execution {
+    padding-left: 6vw;        /* move group right */
+    display: flex !important;
+    justify-content: center !important;
+    gap: 2.4rem;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.team-members.execution .our-team {
+    width: 320px;
+    max-width: 92%;
+    box-sizing: border-box;
+}
+
+/* Responsive tweaks */
+@media (max-width:900px) {
+    .team-members.execution .our-team { width: 45%; }
+}
+@media (max-width:420px) {
+    .team-members.execution .our-team { width: 100%; }
+}
+
+/* reduce shift on tablets/phones */
+@media (max-width: 900px) {
+    .team-members.execution { padding-left: 3vw; }
+}
+@media (max-width: 420px) {
+    .team-members.execution { padding-left: 0; padding-right: 0; }
+}
+
+/* Team end */
+
+
+/* Socials start */
+
+.social-item-wrap a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.socials-body {
+    background-image: url(https://cdn.jsdelivr.net/gh/GfG-IIIT-Bh/GfG-IIIT-Bh.github.io/assets/section-bg.webp);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#socials-wrap {
+    display: flex;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #318D44;
+    font-weight: 500;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 0 #1c622a;
+    transition: 0.3s ease-in-out;
+}
+
+.social-item:hover {
+    box-shadow: 0px 0px 0 #1c622a;
+    transform: translate(10px, 10px);
+}
+
+.social-item-wrap {
+    display: flex;
+    gap: 2rem;
+}
+
+#socials-img {
+    margin-right: 5vw;
+    display: flex;
+    align-items: center;
+}
+
+#socials-img img {
+    width: 27rem;
+    margin: auto 0;
+}
+
+@media screen and (max-width: 1110px) {
+    .socials-body {
+        height: 50rem;
+    }
+
+    #socials-wrap {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .social-item {
+        gap: 0.3rem;
+        font-size: 2.3vmax;
+        margin-bottom: 1.5rem;
+        padding: 1rem 1.3rem;
+    }
+
+    .social-item-wrap {
+        gap: 1.5rem;
+    }
+
+    #socials-img img {
+        width: 75vw;
+        max-width: 25rem;
+    }
+
+    .socials-body {
+        height: 42rem;
+    }
+}
+
+/* Socials end */
+
+
+/* Contact start  */
+
+.contact-body {
+    background: #fff;
+    padding: 3.2rem 1.6rem;
+    text-align: center;
+}
+
+.contact-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-head {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #2e8b3a;
+    margin-bottom: 0.6rem;
+}
+
+.contact-desc {
+    color: #444;
+    margin-bottom: 1.6rem;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive embedded form */
+.contact-form {
+    width: 94%;
+    max-width: 920px;
+    margin: 0 auto;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* iframe scales but keeps form fully visible */
+.contact-form iframe {
+    width: 100%;
+    height: 68vh;            /* adjust as needed */
+    min-height: 480px;
+    border: 0;
+    display: block;
+    background: #fff;
+}
+
+/* smaller on mobile */
+@media (max-width: 900px) {
+    .contact-form iframe {
+        height: 72vh;
+        min-height: 420px;
+    }
+}
+@media (max-width: 420px) {
+    .contact-head { font-size: 2rem; }
+    .contact-form iframe { height: 66vh; min-height: 380px; }
+}
+
+/* Contact end */
+
+
+/* Footer start  */
+
+.footer-body {
+    background-image: url(https://cdn.jsdelivr.net/gh/GfG-IIIT-Bh/GfG-IIIT-Bh.github.io/assets/section-bg-flat.webp);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 13.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 0.4rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.footer-body div:first-of-type {
+    opacity: 0.5;
+    font-weight: 400;
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width:600px) {
+    .footer-body {
+        font-size: 1.1rem;
+    }
+
+    .footer-body div:first-of-type {
+        margin-top: 2.3rem;
+        font-size: 1rem;
+    }
+}
+
+/* Footer end */
+
+/* --------------------------
+   Responsive tweaks (mobile)
+   -------------------------- */
+
+/* General small-screen defaults */
+@media (max-width: 1050px) {
+    #navbar { padding: 0 16px; min-height: 70px; box-shadow: none; }
+    .logo img { width: 10.5rem; transform: translateY(0); }
+    #links { display: none; }
+    #navbar { grid-gap: 1rem; }
+    .section-body { margin: 1rem; }
+}
+
+/* Medium tablets / landscape phones */
+@media (max-width: 900px) {
+    /* Header */
+    #header-wrap {
+        width: auto;
+        gap: 1.2rem;
+        padding: 0 1rem;
+    }
+    #header-text { margin-top: 0.5rem; }
+    #welcome { font-size: 2.2rem; }
+    #bonjour { font-size: 2.2rem; }
+
+    /* Swiper */
+    .swiper { width: calc(100vw - 2rem); height: calc((100vw - 2rem) / 2); }
+    .swiper-body { height: auto; padding-bottom: 2.5rem; }
+
+    /* Team cards: use 3 columns */
+    .team-members.crew {
+        grid-template-columns: repeat(3, minmax(140px, 1fr)) !important;
+        gap: 20px !important;
+        padding: 22px 28px;
+    }
+
+    .our-team { width: 100%; max-width: 320px; }
+    .our-team .name { font-size: 1.25rem; }
+    .our-team .title { font-size: 14px; margin-bottom: 28px; }
+    .our-team { box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+}
+
+/* Small phones */
+@media (max-width: 700px) {
+    /* Team: 2 columns */
+    .team-members.crew {
+        grid-template-columns: repeat(2, minmax(140px, 1fr)) !important;
+        gap: 18px !important;
+        padding: 18px;
+    }
+
+    /* Card compacting */
+    .our-team {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .our-team .name { font-size: 1.15rem; margin: 12px 0 4px; }
+    .our-team .title { font-size: 13px; margin-bottom: 18px; }
+
+    /* Crew avatar smaller */
+    .team-members.crew .our-team .picture {
+        height: 100px;
+        width: 100px;
+        margin: 20px auto 0;
+    }
+    .team-members.crew .our-team:hover .picture img {
+        box-shadow: 0 0 0 10px #f7f5ec;
+    }
+
+    /* Navbar compact */
+    #navbar { padding: 0 12px; }
+    .logo img { width: 9.5rem; }
+}
+
+/* Very small phones / single column */
+@media (max-width: 420px) {
+    /* Team: 1 column */
+    .team-members.crew {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        padding: 12px 12px 28px;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .our-team {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Avatar tiny */
+    .team-members.crew .our-team .picture {
+        height: 92px;
+        width: 92px;
+        margin: 18px auto 0;
+    }
+
+    .our-team .name { font-size: 1.05rem; }
+    .our-team .title { font-size: 12px; margin-bottom: 14px; }
+
+    /* Header text sizing */
+    #welcome { font-size: 1.8rem; }
+    #bonjour { font-size: 1.8rem; }
+
+    /* Footer / socials reduce height */
+    .footer-body { height: 11rem; font-size: 1.1rem; }
+    .socials-body { height: 36rem; }
+}
+
+/* Extra small landscape phones */
+@media (max-height: 600px) and (max-width: 800px) {
+    .section-body { margin: 0.6rem; }
+    .team-members.crew { padding: 12px; gap: 12px; }
+}
+
+/* Prevent overflowing content on very small screens */
+@media (max-width: 360px) {
+    .logo img { width: 8.5rem; }
+    #links a:last-of-type { padding: 0.6rem 1rem; font-size: 0.95rem; }
+    .our-team .name { white-space: normal; line-height: 1.1; }
+}
+
+/* Minor accessible touch targets and spacing improvements */
+@media (hover: none) {
+    .our-team .picture img { transition: none; }
+    .social-item { padding: 0.9rem 1.4rem; }
+}
+
+/* Ensure event poster is fully visible (not cropped) and centered */
+.swiper-body {
+    /* center content vertically and horizontally so poster is always fully visible */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 0; /* allow precise control below */
+    overflow: visible;
+}
+
+/* keep LIVE EVENTS heading slightly above poster but not overlapping it */
+.events-head {
+    position: relative;
+    z-index: 12;
+    top: 0;
+    margin-bottom: 0.6rem;
+    transform: translateY(-8px) !important;
+}
+
+/* decorative live graphic stays above poster */
+#events-head-img {
+    position: relative;
+    z-index: 11;
+    margin-bottom: 0.6rem;
+    transform: translateY(-6px) rotate(-2deg) !important;
+    width: min(90vw, 760px);
+}
+
+/* let the poster container size itself but never exceed viewport height */
+.event-poster,
+.swiper {
+    width: min(1100px, 94vw) !important;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 9;
+    height: auto !important;
+    max-height: calc(100vh - 14vh); /* leave space for header/Live graphic (adjust if needed) */
+    display: block;
+}
+
+/* make the poster image scale to fit inside the available area without cropping */
+.event-poster .event-link img,
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 18vh); /* ensures whole poster is visible */
+    object-fit: contain;            /* use contain to avoid cropping */
+    display: block;
+    border-radius: 8px;
+}
+
+/* pagination / controls (if any) should not overlap the poster */
+.swiper-pagination {
+    bottom: calc(1.6rem);
+    z-index: 15;
+}
+
+/* Desktop: keep banner full-viewport but show poster scaled to view */
+@media screen and (min-width: 1100px) {
+    .swiper-body { height: 100vh; }
+    .event-poster,
+    .swiper { max-height: calc(100vh - 14vh); }
+    .event-poster .event-link img,
+    .swiper-slide img { max-height: calc(100vh - 18vh); }
+}
+
+/* Mobile: poster becomes narrower but still fully visible */
+@media screen and (max-width:900px) {
+    #events-head-img { transform: translateY(-2px) rotate(-2deg) !important; width: 95vw; }
+    .event-poster,
+    .swiper { width: calc(100vw - 2rem) !important; max-height: calc(100vh - 20vh); }
+    .event-poster .event-link img,
+    .swiper-slide img { max-height: calc(100vh - 26vh); object-fit: contain; }
+}
+
+/* Prevent event poster from extending too far (keeps poster visible and page flow intact) */
+.event-poster,
+.swiper {
+    /* cap poster height relative to viewport so it doesn't push content too far down */
+    max-height: 60vh !important;
+    height: auto !important;
+    width: min(1100px, 94vw) !important;
+    margin: 1.2rem auto;
+    display: block;
+}
+
+/* ensure image scales down while preserving aspect ratio and stays centered */
+.event-poster .event-link img,
+.swiper-slide img {
+    max-height: 60vh !important;
+    width: auto !important;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain !important;
+}
+
+/* slightly smaller cap on very wide desktop screens */
+@media screen and (min-width: 1400px) {
+    .event-poster,
+    .swiper {
+        max-height: 55vh !important;
+    }
+    .event-poster .event-link img,
+    .swiper-slide img {
+        max-height: 55vh !important;
+    }
+}
+
+/* keep mobiles comfortable */
+@media screen and (max-width:900px) {
+    .event-poster,
+    .swiper {
+        max-height: calc(100vh - 22vh) !important;
+    }
+    .event-poster .event-link img,
+    .swiper-slide img {
+        max-height: calc(100vh - 28vh) !important;
+        width: 100% !important;
+    }
+}
+
+/* Smooth hover transitions for all student/team cards */
+.team-members .our-team {
+    transition: transform 360ms cubic-bezier(.2,.9,.3,1), box-shadow 360ms ease;
+    will-change: transform, box-shadow;
+}
+
+.team-members .our-team .picture img {
+    transition: transform 420ms cubic-bezier(.2,.9,.3,1), box-shadow 420ms ease, filter 420ms ease;
+    will-change: transform, box-shadow, filter;
+}
+
+/* gentle lift + stronger shadow on hover */
+.team-members .our-team:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 38px rgba(13,30,43,0.12);
+}
+
+/* image scale / ring on hover (keeps previous visual behaviour but smoother) */
+.team-members .our-team:hover .picture img {
+    transform: scale(0.88);
+    box-shadow: 0 0 0 12px #f7f5ec;
+}
+
+/* Register button styling under event banner */
+.event-register {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1.6rem;
+}
+
+.register-btn {
+    background: #318D44;
+    color: #ffffff;
+    border: 0;
+    padding: 0.75rem 1.6rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 28px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(49,141,68,0.18);
+    transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms;
+}
+
+.register-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(49,141,68,0.18);
+}
+
+@media (max-width: 900px) {
+    .register-btn { font-size: 0.98rem; padding: 0.6rem 1.2rem; }
+}
+@media (max-width: 420px) {
+    .register-btn { width: calc(100% - 2rem); max-width: 420px; }
+}
