@@ -1264,3 +1264,71 @@ body {
 @media (max-width: 420px) {
     .register-btn { width: calc(100% - 2rem); max-width: 420px; }
 }
+
+/* --- ANIMATIONS: entrance + subtle image/logo motion --- */
+
+/* entrance: fade + slide up */
+.animate-in {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp .72s cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+/* gentle floating for images (subtle loop) */
+.animate-float {
+    animation: floatY 6s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* small pulse for logo */
+.animate-pulse {
+    animation: pulse 2.8s ease-in-out infinite;
+}
+
+/* hover polish */
+.logo img:hover,
+.event-poster img:hover,
+.our-team .picture img:hover,
+#socials-img img:hover {
+    transform: translateY(-6px) scale(1.02);
+    transition: transform 280ms ease;
+}
+
+/* Fade-up-from-bottom for student (crew) cards */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    animation: fadeUpFromBottom 600ms cubic-bezier(.2,.9,.2,1) forwards;
+    will-change: transform, opacity;
+}
+
+/* small hover polish (optional) */
+.team-members.crew .our-team:hover {
+    transform: translateY(-4px);
+    transition: transform 240ms ease;
+}
+
+/* keyframes */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatY {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+@keyframes pulse {
+    0%   { transform: scale(1); filter: drop-shadow(0 6px 12px rgba(0,0,0,0.06)); }
+    50%  { transform: scale(1.03); filter: drop-shadow(0 12px 26px rgba(0,0,0,0.08)); }
+    100% { transform: scale(1); filter: drop-shadow(0 6px 12px rgba(0,0,0,0.06)); }
+}
+@keyframes fadeUpFromBottom {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Make sure elements are ready to animate (avoids flash) */
+[data-animate-ready] { opacity: 0; }
+
+/* end of animation block */

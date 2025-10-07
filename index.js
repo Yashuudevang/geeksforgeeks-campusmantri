@@ -64,12 +64,8 @@ var swiper = new Swiper(".mySwiper", {
 // Loading screen start
 const pageLoaded = () => {
     // Animate on scroll
-    AOS.init(
-        {
-            duration: 800,
-            once: true
-        }
-    );
+    // allow AOS to animate every time elements enter viewport
+    AOS.init({ duration: 800, once: false });
 
     // Remove loader
     const loader = document.getElementById('loader_block');
@@ -102,7 +98,7 @@ window.addEventListener('load', pageLoaded);
 document.addEventListener('DOMContentLoaded', function () {
     // initialize AOS (safe to call if already initialized)
     if (window.AOS) {
-        AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic' });
+        AOS.init({ once: false, duration: 700, easing: 'ease-out-cubic' });
     }
 
     // Apply fade-up + staggered delay to campus crew cards
@@ -150,4 +146,107 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => iframe && iframe.focus(), 600);
         });
     }
+
+    // --- ADD: apply entrance animations with a small stagger ---
+    try {
+        const selectors = [
+            '#logo .logo img', '#bonjour', '#welcome', '#geeksforgeeks',
+            '.our-team-head', '.events-head', '.contact-head',
+            '.team-members .our-team .name', '.team-members .our-team .title',
+            '.social-item', '.register-btn', '.event-poster img',
+            '#socials-img img', '.swiper-slide img', '.our-team .picture img'
+        ];
+        const elems = document.querySelectorAll(selectors.join(','));
+        elems.forEach((el, i) => {
+            // mark ready to avoid FOUC
+            el.setAttribute('data-animate-ready', 'true');
+            // stagger
+            const delay = (i % 12) * 80; // 0..880ms then repeat pattern
+            el.style.animationDelay = delay + 'ms';
+            // decide classes
+            el.classList.add('animate-in');
+            // add float to images and event poster, pulse to logo
+            if (el.matches && (el.matches('img') || el.tagName === 'IMG')) {
+                el.classList.add('animate-float');
+                // make float slightly slower for large posters
+                if (el.closest('.event-poster')) el.style.animationDuration = '8s';
+            }
+            if (el.matches && el.matches('#logo .logo img')) {
+                el.classList.add('animate-pulse');
+                el.style.animationDelay = '200ms';
+            }
+            // cleanup inline attribute after animation complete (optional)
+            el.addEventListener('animationend', () => {
+                el.style.animationDelay = '';
+                el.removeAttribute('data-animate-ready');
+            }, { once: true });
+        });
+    } catch (err) {
+        console.warn('animation init failed', err);
+    }
+
+    // --- ADD: IntersectionObserver to replay animations on every scroll ---
+    try {
+        const replaySelectors = [
+            '#logo .logo img', '#bonjour', '#welcome', '#geeksforgeeks',
+            '.our-team-head', '.events-head', '.contact-head',
+            '.team-members .our-team .name', '.team-members .our-team .title',
+            '.social-item', '.register-btn', '.event-poster img',
+            '#socials-img img', '.swiper-slide img', '.our-team .picture img'
+        ];
+        const replayElems = document.querySelectorAll(replaySelectors.join(','));
+        const observerOpts = { threshold: 0.18, rootMargin: '0px 0px -8% 0px' };
+
+        const replayObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const el = entry.target;
+                if (entry.isIntersecting) {
+                    // force reflow then add class to replay animation
+                    el.classList.remove('animate-in');
+                    void el.offsetWidth;
+                    el.classList.add('animate-in');
+                    // for images also ensure float/pulse classes are present
+                    if (el.tagName === 'IMG') {
+                        el.classList.add('animate-float');
+                        if (el.closest && el.closest('#logo')) el.classList.add('animate-pulse');
+                    }
+                } else {
+                    // remove classes so animation can run again when re-entering
+                    el.classList.remove('animate-in');
+                    if (el.tagName === 'IMG') {
+                        el.classList.remove('animate-float');
+                        el.classList.remove('animate-pulse');
+                    }
+                }
+            });
+        }, observerOpts);
+
+        replayElems.forEach(el => replayObserver.observe(el));
+    } catch (err) {
+        console.warn('replay observer init failed', err);
+    }
+
+    // Replayable fade-up animation for campus crew cards (staggered)
+    (function initCrewFadeUp(){
+        const crewCards = Array.from(document.querySelectorAll('.team-members.crew .our-team'));
+        if (!crewCards.length) return;
+
+        const obsOpts = { threshold: 0.18, rootMargin: '0px 0px -8% 0px' };
+        const crewObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const el = entry.target;
+                const idx = crewCards.indexOf(el);
+                if (entry.isIntersecting) {
+                    // stagger by index
+                    el.style.animationDelay = (idx * 80) + 'ms';
+                    el.classList.add('animate-fade-up');
+                } else {
+                    el.classList.remove('animate-fade-up');
+                    el.style.animationDelay = '';
+                }
+            });
+        }, obsOpts);
+
+        crewCards.forEach(card => crewObserver.observe(card));
+    })();
 });
