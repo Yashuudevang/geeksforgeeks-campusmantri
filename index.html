@@ -135,115 +135,7 @@
 
     </section>
 
-    <!-- <section id="about-us-loc" class="section-body">
-        <div id="header-wrap">
-            <div id="header-text" data-aos="fade-up" data-aos-delay="300">
-
-                <div id="header-img" data-aos="fade-up">
-                    <img src="vission.png" alt="">
-                </div>
-            </div>
-            <div id="header-text" data-aos="fade-up" data-aos-delay="300">
-
-                <div id="welcome"><span id="geeksforgeeks">Vision </span></div>
-
-                <div id="description">“The Geeks for Geeks Student Chapter at Anurag University envisions a
-                    vision to create a vibrant community of passionate programmers and
-                    problem solvers who are equipped with the necessary skills to excel in the
-                    ever-evolving field of computer science and engineering. We aim to foster a
-                    culture of continuous learning and inspire innovation among our members
-                    to explore new ways of critical and logical thinking.”
-                </div>
-
-
-            </div>
-        </div>
-
-    </section> -->
-    <!-- <section id="about-us-loc" class="section-body">
-        <div id="header-wrap">
-            <div id="header-text" data-aos="fade-up" data-aos-delay="300">
-                <div id="welcome"><span id="geeksforgeeks">Mission </span></div>
-
-                <div id="description">“The Geeks for Geeks Student Chapter at Anurag University envisions its
-                    mission to provide a conducive environment for students to enhance their
-                    programming abilities, promote teamwork, and encourage the application of
-                    theoretical knowledge to practical problem-solving. We strive to organize
-                    regular events, workshops, tutorials, webinars by industry experts and
-                    competitions that nurture creativity, critical thinking, and technical
-                    excellence.”</div>
-                <br>
-                <br>
-                <br>
-                <br>
-
-            </div>
-            <div id="header-img" data-aos="fade-up">
-                <img src="missssion.png" alt="">
-            </div>
-        </div>
-
-    </section>
-    <section id="about-us-loc" class="section-body">
-        <div id="header-wrap">
-            <div id="header-text" data-aos="fade-up" data-aos-delay="300">
-
-                <div id="header-img" data-aos="fade-up">
-                    <img src="objectives.png" alt="">
-                </div>
-            </div>
-            <div id="header-text" data-aos="fade-up" data-aos-delay="300">
-
-                <div id="welcome"><span id="geeksforgeeks">Objectives </span></span></div>
-
-
-                <div id="description"> <span id="geeksforgeeks"> 1. Knowledge Sharing:</span> The chapter will organize
-                    regular workshops,
-                    seminars, and coding competitions to facilitate the exchange of knowledge
-                    and foster a culture of learning among students.
-                    <br>
-                    <span id="geeksforgeeks">2. Skill Development: </span> The chapter will provide a platform for
-                    students to
-                    enhance their programming skills through coding challenges, hackathons,
-                    and practice sessions. <br>
-                    <span id="geeksforgeeks">3. Industry Interaction: </span> The chapter will invite industry experts
-                    and
-                    professionals to deliver talks, mentorship sessions, and share insights into”
-                </div>
-
-           
-
-
-            </div>
-        </div>
-    </section> -->
-   
-    <!-- <section id="about-us-loc" class="section-body">
-        <div id="header-wrap">
-            <div id="header-text" data-aos="fade-up" data-aos-delay="300">
-                <div id="welcome"><span id="geeksforgeeks">Advantages </span>to join</div>
-
-                <div id="description"><span id="geeksforgeeks">&hearts; </span>Get an <span
-                        id="geeksforgeeks">internship </span> at GeeksforGeeks.
-                    <br><span id="geeksforgeeks">&hearts; Learn to build </span> effective and optimized solutions for
-                    local businesses
-                    and their <br>community as per the latest technology trends. <br><span id="geeksforgeeks">&hearts; </span>Great <span id="geeksforgeeks">learning
-                    </span> and <span
-                        id="geeksforgeeks">networking</span>
-                    experience
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-
-            </div>
-            <div id="header-img" data-aos="fade-up">
-                <img src="advantagess.png" alt="">
-            </div>
-        </div>
-
-    </section> -->
+    <div class="event-countdown" data-aos="fade-up">
 
     <!-- Past events section -->
     <section id="events-loc" class="swiper-body">
@@ -263,25 +155,68 @@
 
         <!-- Register button below the banner -->
         <div class="event-register" data-aos="fade-up">
-            <!-- <a id="register-btn"
-               class="register-btn"
-               href="https://docs.google.com/forms/d/e/1FAIpQLSeQDSQm99wNgkSEfn33RnDYi3Iqyp5VP02dPU01qsHjf30xjg/viewform?usp=header"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Register for live event">
-                Click here to register
-            </a> -->
+            <!-- Countdown block (local time). Update data-event-time if needed -->
+        
+  <h1>Are You Ready ?</h1>
+
+  <div id="countdown-container" class="countdown-container">
+    <div class="count-item"><span id="days">0</span> Days</div>
+    <div class="count-item"><span id="hours">00</span> Hours</div>
+    <div class="count-item"><span id="minutes">00</span> Minutes</div>
+    <div class="count-item"><span id="seconds">00</span> Seconds</div>
+  </div>
+
+  <script>
+    const targetDate = new Date(2025, 9, 13, 12, 30, 0); // Oct 13, 2025, 12:30
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const countdownContainer = document.getElementById('countdown-container');
+
+    function pad(n){ return n < 10 ? '0' + n : n; }
+
+    function updateCountdown(){
+      const now = new Date();
+      let diff = targetDate - now;
+
+      if(diff <= 0){
+        // Replace only the countdown div
+        countdownContainer.innerHTML = "<h2 style='font-size:2em; margin:20px 0;'>Event Started!</h2>";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff %= (1000*60*60*24);
+      const hours = Math.floor(diff / (1000*60*60));
+      diff %= (1000*60*60);
+      const minutes = Math.floor(diff / (1000*60));
+      diff %= (1000*60);
+      const seconds = Math.floor(diff / 1000);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+  </script>
+
 
            <!-- Download buttons for Event overview and Hackathon rules -->
            <div class="download-group" aria-hidden="false">
-               <a class="download-btn" href="gfg-gmu.web.app\Hackathon_Schedule.pdf" download="Event_Overview.pdf" target="_blank" rel="noopener">
+               <a class="download-btn" href="gfg-gmu.web.app/Hackathon_Schedule.pdf" download="Event_Overview.pdf" target="_blank" rel="noopener">
                    Download Event Overview
                </a>
-               <a class="download-btn" href="gfg-gmu.web.app\Hackathon_Rules_and_Regulations.pdf" download="Hackathon_Rules.pdf" target="_blank" rel="noopener">
+               <a class="download-btn" href="gfg-gmu.web.app/Hackathon_Rules_and_Regulations.pdf" download="Hackathon_Rules.pdf" target="_blank" rel="noopener">
                    Download Hackathon Rules
                </a>
            </div>
-         </div>
+        </div>
     </section>
     <div class="swiper-pagination" style="display:none;"></div>
 

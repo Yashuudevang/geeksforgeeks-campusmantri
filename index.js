@@ -249,4 +249,74 @@ document.addEventListener('DOMContentLoaded', function () {
 
         crewCards.forEach(card => crewObserver.observe(card));
     })();
+
+// ---------- Countdown (robust) ----------
+(function initCountdown() {
+    // target: 13 Oct 2025 at 12:30 local time
+    const targetDate = new Date(2025, 9, 13, 12, 30, 0); // monthIndex 9 = October
+    console.log('Countdown target:', targetDate.toString());
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    const daysProgress = document.getElementById('days-progress');
+    const hoursProgress = document.getElementById('hours-progress');
+    const minutesProgress = document.getElementById('minutes-progress');
+    const secondsProgress = document.getElementById('seconds-progress');
+
+    if (!daysEl && !hoursEl && !minutesEl && !secondsEl) {
+        console.warn('Countdown elements not found — skipping countdown init.');
+        return;
+    }
+
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+        // debug
+        // console.log('now:', now.toString(), 'diff(ms):', diff);
+
+        if (isNaN(targetDate.getTime())) {
+            console.error('Invalid targetDate for countdown.');
+            return;
+        }
+
+        if (diff <= 0) {
+            const container = document.getElementById('countdown');
+            if (container) container.innerHTML = '<div class="count-item"><span class="count-num">0</span><span class="count-label">Event started</span></div>';
+            clearInterval(timer);
+            window.dispatchEvent(new CustomEvent('eventStarted', { detail: { target: targetDate } }));
+            return;
+        }
+
+        let rem = diff;
+        const days = Math.floor(rem / (1000 * 60 * 60 * 24)); rem %= (1000 * 60 * 60 * 24);
+        const hours = Math.floor(rem / (1000 * 60 * 60)); rem %= (1000 * 60 * 60);
+        const minutes = Math.floor(rem / (1000 * 60)); rem %= (1000 * 60);
+        const seconds = Math.floor(rem / 1000);
+
+        if (daysEl) daysEl.textContent = String(days);
+        if (hoursEl) hoursEl.textContent = pad(hours);
+        if (minutesEl) minutesEl.textContent = pad(minutes);
+        if (secondsEl) secondsEl.textContent = pad(seconds);
+
+        // progress circles (if present)
+        try {
+            const fullCircle = 283;
+            if (daysProgress) daysProgress.style.strokeDashoffset = (fullCircle - (days / 365) * fullCircle).toString();
+            if (hoursProgress) hoursProgress.style.strokeDashoffset = (fullCircle - (hours / 24) * fullCircle).toString();
+            if (minutesProgress) minutesProgress.style.strokeDashoffset = (fullCircle - (minutes / 60) * fullCircle).toString();
+            if (secondsProgress) secondsProgress.style.strokeDashoffset = (fullCircle - (seconds / 60) * fullCircle).toString();
+        } catch (e) {
+            // ignore if SVG elements missing
+        }
+    }
+
+    // start
+    updateCountdown();
+    let timer = setInterval(updateCountdown, 1000);
+})();
 });

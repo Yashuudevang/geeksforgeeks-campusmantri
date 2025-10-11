@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Countdown</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    .count-item { display: inline-block; margin: 10px; font-size: 2em; }
+  </style>
+</head>
+<body>
+  <h1>Event Countdown</h1>
+  <div class="count-item"><span id="days">0</span> Days</div>
+  <div class="count-item"><span id="hours">00</span> Hours</div>
+  <div class="count-item"><span id="minutes">00</span> Minutes</div>
+  <div class="count-item"><span id="seconds">00</span> Seconds</div>
+
+  <script>
+    // Set your event date here (Year, MonthIndex-0 based, Day, Hour, Minute, Second)
+    const targetDate = new Date(2025, 9, 13, 12, 30, 0); // October = 9
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    function pad(n){ return n < 10 ? '0' + n : n; }
+
+    function updateCountdown(){
+      const now = new Date();
+      let diff = targetDate - now;
+
+      if(diff <= 0){
+        document.body.innerHTML = "<h1>Event Started!</h1>";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff %= (1000*60*60*24);
+      const hours = Math.floor(diff / (1000*60*60));
+      diff %= (1000*60*60);
+      const minutes = Math.floor(diff / (1000*60));
+      diff %= (1000*60);
+      const seconds = Math.floor(diff / 1000);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    updateCountdown(); // initial call
+    const timer = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

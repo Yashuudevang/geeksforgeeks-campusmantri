@@ -1400,3 +1400,75 @@ body {
   background-color: #111;
   color: #fff;
 }
+
+#countdown-container {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 12px;
+  margin-top: -6px; /* tuck slightly under green banner if present */
+  flex-wrap: nowrap;
+}
+
+/* Each card */
+#countdown-container .count-item {
+  background: #ffffff;
+  min-width: 120px;
+  padding: 18px 22px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(6, 24, 32, 0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #222;
+}
+
+/* big number */
+#countdown-container .count-item > span:first-child {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  color: #111;
+}
+
+/* seconds special color (if you use a .seconds class) */
+#countdown-container .count-item > span.seconds,
+#countdown-container .count-item > span#seconds {
+  color: #d92b2b;
+}
+
+/* label text (the text after the number) */
+#countdown-container .count-item {
+  font-size: 15px;      /* label size */
+  font-weight: 600;
+  text-transform: none;
+  color: #4f5656;
+}
+
+/* hover lift (subtle) */
+#countdown-container .count-item:hover {
+  transform: translateY(-6px);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 20px 44px rgba(6,24,32,0.08);
+}
+
+/* responsive downscale */
+@media (max-width: 1100px) {
+  #countdown-container .count-item > span:first-child { font-size: 40px; }
+}
+@media (max-width: 680px) {
+  #countdown-container {
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  #countdown-container .count-item {
+    min-width: 88px;
+    padding: 12px 14px;
+  }
+  #countdown-container .count-item > span:first-child { font-size: 32px; }
+  #countdown-container .count-item { font-size: 13px; }
+}

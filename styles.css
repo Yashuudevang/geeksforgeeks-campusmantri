@@ -1,0 +1,77 @@
+/* Timeline countdown styles */
+#countdown {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 0 12px;
+}
+
+#countdown .count-item {
+  background: #ffffff;
+  min-width: 110px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+#countdown .count-item span {
+  display: block;
+}
+
+/* big number */
+#countdown .count-item span:first-child,
+#countdown .count-item > span#days,
+#countdown .count-item > span#hours,
+#countdown .count-item > span#minutes,
+#countdown .count-item > span#seconds {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2f8b3a; /* green number */
+  line-height: 1;
+}
+
+/* label (plain text after span will inherit this size/color) */
+#countdown .count-item {
+  color: #5b6163;
+  font-size: 0.91rem;
+  text-transform: none;
+}
+
+/* Optional small label under number if you wrap label in a span.count-label */
+#countdown .count-item .count-label {
+  font-size: 0.82rem;
+  color: #6b7173;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* subtle hover for desktop */
+#countdown .count-item:hover {
+  transform: translateY(-6px);
+  transition: transform 220ms ease;
+  box-shadow: 0 20px 40px rgba(17, 24, 39, 0.08);
+}
+
+/* compact layout on small screens */
+@media (max-width: 680px) {
+  #countdown {
+    gap: 12px;
+  }
+  #countdown .count-item {
+    min-width: 84px;
+    padding: 10px 12px;
+  }
+  #countdown .count-item span:first-child {
+    font-size: 1.25rem;
+  }
+  #countdown .count-item { font-size: 0.82rem; }
+}
