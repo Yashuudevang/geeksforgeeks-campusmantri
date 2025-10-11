@@ -1258,6 +1258,37 @@ body {
     box-shadow: 0 18px 36px rgba(49,141,68,0.18);
 }
 
+/* Button outline & focus styles */
+.register-btn,
+.download-btn {
+    border: 2px solid #2f8b3a; /* visible green border */
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, opacity .18s ease;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.register-btn:hover,
+.download-btn:hover {
+    border-color: #2f8b3a;
+    opacity: 0.96;
+}
+
+.register-btn:focus,
+.register-btn:focus-visible,
+.download-btn:focus,
+.download-btn:focus-visible {
+    box-shadow: 0 0 0 5px rgba(47,139,58,0.14);
+    border-color: #2f8b3a;
+    transform: translateY(-2px);
+}
+
+/* stronger active state */
+.register-btn:active,
+.download-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
 @media (max-width: 900px) {
     .register-btn { font-size: 0.98rem; padding: 0.6rem 1.2rem; }
 }
@@ -1332,3 +1363,40 @@ body {
 [data-animate-ready] { opacity: 0; }
 
 /* end of animation block */
+
+/* Event download buttons */
+.event-register { display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:18px; }
+
+
+.download-group {
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:6px;
+}
+
+.download-btn {
+    display:inline-block;
+    padding:10px 16px;
+    background:#000000;
+    color:#fff;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+.download-btn:hover {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.download-btn:active {
+  transform: scale(0.96);
+  background-color: #111;
+  color: #fff;
+}
