@@ -1,5 +1,7 @@
 /* Timeline countdown styles */
-#countdown {
+#countdown,
+#countdown-container,
+.countdown-container {
   display: flex;
   gap: 18px;
   justify-content: center;
@@ -9,7 +11,9 @@
   padding: 0 12px;
 }
 
-#countdown .count-item {
+#countdown .count-item,
+#countdown-container .count-item,
+.countdown-container .count-item {
   background: #ffffff;
   min-width: 110px;
   padding: 14px 18px;
@@ -23,7 +27,9 @@
   font-weight: 600;
 }
 
-#countdown .count-item span {
+#countdown .count-item span,
+#countdown-container .count-item span,
+.countdown-container .count-item span {
   display: block;
 }
 
@@ -32,7 +38,17 @@
 #countdown .count-item > span#days,
 #countdown .count-item > span#hours,
 #countdown .count-item > span#minutes,
-#countdown .count-item > span#seconds {
+#countdown .count-item > span#seconds,
+#countdown-container .count-item span:first-child,
+#countdown-container .count-item > span#days,
+#countdown-container .count-item > span#hours,
+#countdown-container .count-item > span#minutes,
+#countdown-container .count-item > span#seconds,
+.countdown-container .count-item span:first-child,
+.countdown-container .count-item > span#days,
+.countdown-container .count-item > span#hours,
+.countdown-container .count-item > span#minutes,
+.countdown-container .count-item > span#seconds {
   font-size: 2rem;
   font-weight: 800;
   color: #2f8b3a; /* green number */
@@ -40,14 +56,18 @@
 }
 
 /* label (plain text after span will inherit this size/color) */
-#countdown .count-item {
+#countdown .count-item,
+#countdown-container .count-item,
+.countdown-container .count-item {
   color: #5b6163;
   font-size: 0.91rem;
   text-transform: none;
 }
 
 /* Optional small label under number if you wrap label in a span.count-label */
-#countdown .count-item .count-label {
+#countdown .count-item .count-label,
+#countdown-container .count-item .count-label,
+.countdown-container .count-item .count-label {
   font-size: 0.82rem;
   color: #6b7173;
   font-weight: 500;
@@ -55,7 +75,9 @@
 }
 
 /* subtle hover for desktop */
-#countdown .count-item:hover {
+#countdown .count-item:hover,
+#countdown-container .count-item:hover,
+.countdown-container .count-item:hover {
   transform: translateY(-6px);
   transition: transform 220ms ease;
   box-shadow: 0 20px 40px rgba(17, 24, 39, 0.08);
@@ -63,15 +85,23 @@
 
 /* compact layout on small screens */
 @media (max-width: 680px) {
-  #countdown {
+  #countdown,
+  #countdown-container,
+  .countdown-container {
     gap: 12px;
   }
-  #countdown .count-item {
+  #countdown .count-item,
+  #countdown-container .count-item,
+  .countdown-container .count-item {
     min-width: 84px;
     padding: 10px 12px;
   }
-  #countdown .count-item span:first-child {
+  #countdown .count-item span:first-child,
+  #countdown-container .count-item span:first-child,
+  .countdown-container .count-item span:first-child {
     font-size: 1.25rem;
   }
-  #countdown .count-item { font-size: 0.82rem; }
+  #countdown .count-item,
+  #countdown-container .count-item,
+  .countdown-container .count-item { font-size: 0.82rem; }
 }

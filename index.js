@@ -252,8 +252,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ---------- Countdown (robust) ----------
 (function initCountdown() {
-    // target: 13 Oct 2025 at 12:30 local time
-    const targetDate = new Date(2025, 9, 13, 12, 30, 0); // monthIndex 9 = October
+    // target: 09 Nov 2025 at 06:00 PM local time
+    const targetDate = new Date(2025, 10, 9, 18, 0, 0); // monthIndex 10 = November, 18:00 = 6pm
     console.log('Countdown target:', targetDate.toString());
 
     const daysEl = document.getElementById('days');

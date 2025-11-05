@@ -1112,7 +1112,7 @@ body {
     position: relative;
     z-index: 11;
     margin-bottom: 0.6rem;
-    transform: translateY(-6px) rotate(-2deg) !important;
+    transform: translateY(40px) rotate(-2deg) !important;
     width: min(90vw, 760px);
 }
 
@@ -1157,7 +1157,7 @@ body {
 
 /* Mobile: poster becomes narrower but still fully visible */
 @media screen and (max-width:900px) {
-    #events-head-img { transform: translateY(-2px) rotate(-2deg) !important; width: 95vw; }
+    #events-head-img { transform: translateY(12px) rotate(-2deg) !important; width: 95vw; }
     .event-poster,
     .swiper { width: calc(100vw - 2rem) !important; max-height: calc(100vh - 20vh); }
     .event-poster .event-link img,
