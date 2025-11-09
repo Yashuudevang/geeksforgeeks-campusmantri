@@ -63,12 +63,29 @@ function verifyStudentEmail() {
     
     if (allowedEmails.has(email)) {
         // Email is in the allowed list
-        window.open('https://practice.geeksforgeeks.org/contest/code-arena-5555', '_blank');
         closeModal();
+        // Create a temporary link and trigger click for better mobile support
+        const link = document.createElement('a');
+        link.href = 'https://practice.geeksforgeeks.org/contest/code-arena-5555';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        
+        // Add to body, trigger click, then remove
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     } else {
         // Show error message
         errorElement.style.display = 'block';
+        
+        // Auto-hide error message after 3 seconds
+        setTimeout(() => {
+            errorElement.style.display = 'none';
+        }, 3000);
     }
+    
+    // Prevent form submission if any
+    return false;
 }
 
 // Close modal with Escape key

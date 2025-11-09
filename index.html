@@ -253,16 +253,16 @@
   </div>
 
   <!-- Email Verification Modal -->
-  <div id="accessModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center;">
-    <div style="background: white; padding: 30px; border-radius: 10px; max-width: 400px; width: 90%;">
-      <h3 style="margin-top: 0; color: #2F8D46;">Student Access Required</h3>
-      <p>Please enter your registered email to continue:</p>
-      <input type="email" id="userEmail" placeholder="Enter your registered email" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px;">
-      <div style="display: flex; justify-content: space-between; margin-top: 20px;">
-        <button onclick="closeModal()" style="padding: 8px 20px; background: #f0f0f0; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
-        <button onclick="verifyStudentEmail()" style="padding: 8px 20px; background: #2F8D46; color: white; border: none; border-radius: 5px; cursor: pointer;">Verify Email</button>
+  <div id="accessModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center; -webkit-overflow-scrolling: touch; touch-action: manipulation;">
+    <div style="background: white; padding: 20px; border-radius: 10px; max-width: 90%; width: 400px; max-height: 90vh; overflow-y: auto; -webkit-overflow-scrolling: touch;">
+      <h3 style="margin: 0 0 15px 0; color: #2F8D46; font-size: 1.3em;">Student Access Required</h3>
+      <p style="margin: 0 0 15px 0;">Please enter your registered email to continue:</p>
+      <input type="email" id="userEmail" placeholder="Enter your registered email" style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; -webkit-appearance: none; appearance: none;" autocomplete="email" inputmode="email">
+      <div style="display: flex; justify-content: space-between; margin-top: 20px; gap: 10px;">
+        <button onclick="closeModal()" style="flex: 1; padding: 10px; background: #f0f0f0; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; -webkit-tap-highlight-color: transparent;">Cancel</button>
+        <button onclick="verifyStudentEmail()" style="flex: 1; padding: 10px; background: #2F8D46; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; -webkit-tap-highlight-color: transparent;">Verify Email</button>
       </div>
-      <p id="errorMessage" style="color: red; margin-top: 10px; display: none;">Email not found in the registered students list.</p>
+      <p id="errorMessage" style="color: red; margin: 15px 0 0 0; padding: 10px; background: #fff0f0; border-radius: 4px; display: none; font-size: 14px;">Email not found in the registered students list.</p>
     </div>
   </div>
         </div>
