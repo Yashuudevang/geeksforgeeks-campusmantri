@@ -43,6 +43,28 @@
 
     <!-- Primary css and js files -->
     <link rel="stylesheet" href="index.css">
+    <style>
+        /* Leadership Row Layout */
+        .leadership-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+        
+        .leadership-column {
+            flex: 0 1 400px;
+            margin: 0 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .leadership-column {
+                flex: 100%;
+            }
+        }
+    </style>
     <script src="index.js" defer></script>
 
     <!-- Preconnect to improve external resources load time -->
@@ -337,30 +359,63 @@
                 </div>
 
             </div>
-            <div class="our-team-head" data-aos="fade-down"><span>Our</span> Campus <span>Mantri </span>& Bodies</div>
-
-            <div class="team-members" data-aos="fade-up">
-                <div class="our-team">
-                    <div class="picture">
-                        <img class="img-fluid" src="gfg-gmu.web.app\Yashwanth V S Devang.jpg">
+            <!-- Leadership Row - Mantri and Mentor Side by Side -->
+            <div class="leadership-row">
+                <!-- Campus Mantri Section -->
+                <div class="leadership-column">
+                    <div class="our-team-head" data-aos="fade-down"><span>Campus</span> Mantri</div>
+                    <div class="team-members" data-aos="fade-up">
+                        <div class="our-team">
+                            <div class="picture">
+                                <img class="img-fluid" src="gfg-gmu.web.app\Yashwanth V S Devang.jpg">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="name">Mr.Yashwanth V S Devang</h3>
+                                <h4 class="title">Campus Mantri</h4>
+                            </div>
+                            <ul class="social">
+                                <li><a target="_blank" href="https://www.linkedin.com/in/yashwanthvsdevang/"
+                                        class="fa fa-linkedin" aria-hidden="true"></a></li>
+                                <li><a target="_blank" href="https://github.com/Yashuudevang" class="fa fa-github"
+                                        aria-hidden="true"></a>
+                                </li>
+                                <li><a target="_blank" href="https://x.com/Yashudevang"
+                                        class="fa fa-twitter" aria-hidden="true"></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="team-content">
-                        <h3 class="name">Yashwanth V S Devang</h3>
-                        <h4 class="title"><b>Campus Mantri</b></h4>
-                    </div>
-                    <ul class="social">
-                        <li><a target="_blank" href="https://www.linkedin.com/in/yashwanthvsdevang/"
-                                class="fa fa-linkedin" aria-hidden="true"></a></li>
-                        <li><a target="_blank" href="https://github.com/Yashuudevang" class="fa fa-github"
-                                aria-hidden="true"></a>
-                        </li>
-                        <li><a target="_blank" href="https://x.com/Yashudevang"
-                                class="fa fa-twitter" aria-hidden="true"></a>
-                        </li>
-                        <!-- <li><a target="_blank" href="https://www.instagram.com/" class="fa fa-instagram"
-                                aria-hidden="true"></a></li> -->
-                    </ul>
                 </div>
+
+                <!-- Campus Mentor Section -->
+                <div class="leadership-column">
+                    <div class="our-team-head" data-aos="fade-down"><span>Campus</span> Mentor</div>
+                    <div class="team-members" data-aos="fade-up">
+                        <div class="our-team">
+                            <div class="picture">
+                                <img class="img-fluid" src="gfg-gmu.web.app\Sneha.png">
+                            </div>
+                            <div class="team-content">
+                                <h3 class="name">Ms.Sneha Bagle</h3>
+                                <h4 class="title">Campus Mentor</h4>
+                            </div>
+                            <ul class="social">
+                                <li><a target="_blank" href="https://www.linkedin.com/" class="fa fa-linkedin"
+                                        aria-hidden="true"></a></li>
+                                <li><a target="_blank" href="https://github.com/" class="fa fa-github"
+                                        aria-hidden="true"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campus Body Section -->
+            <div class="our-team-head" data-aos="fade-down"><span>Campus</span> Body</div>
+            
+            <div class="team-members" data-aos="fade-up">
+                
                 <div class="our-team">
                     <div class="picture">
                         <img class="img-fluid" src="gfg-gmu.web.app\sachin.jpg">
@@ -477,9 +532,9 @@
                 
 
 
-            </div> <!-- end of "Our Campus Mantri & Bodies" .team-members -->
+            </div> <!-- end of Campus Body section -->
 
-            <!-- Add Campus Crew (10 members -> 2 rows of 5) -->
+            <!-- Chapter Crew Section -->
             <div class="our-team-head" data-aos="fade-down"><span>Chapter</span> Crew</div>
             <div class="team-members crew" data-aos="fade-up">
                 <div class="our-team">
