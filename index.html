@@ -137,7 +137,7 @@
 
     <div class="event-countdown" data-aos="fade-up">
 
-    <!-- Past events section -->
+    <!-- Live events section -->
     <section id="events-loc" class="swiper-body">
         <div data-aos="flip-up">
             <img id="events-head-img" src="gfg-gmu.web.app\event-banner.png" alt="Live Events">
@@ -149,7 +149,7 @@
             <a class="event-link" href="https://forms.gle/KJG5M5JXVbcAXwm76"
                data-form-src="https://docs.google.com/forms/d/e/1FAIpQLSeQDSQm99wNgkSEfn33RnDYi3Iqyp5VP02dPU01qsHjf30xjg/viewform?usp=header"
                aria-label="Open live event details in page">
-                <img src="gfg-gmu.web.app\CODE ARENA.png" alt="Live event poster">
+                <img src="gfg-gmu.web.app\COMING SOON.png" alt="Live event poster">
             </a>
         </div>
 
@@ -157,7 +157,7 @@
         <div class="event-register" data-aos="fade-up">
             <!-- Countdown block (local time). Update data-event-time if needed -->
         
-  <h1>Are You Ready ?</h1>
+  <!-- <h1>Are You Ready ?</h1> -->
 
   <div id="countdown-container" class="countdown-container">
     <div class="count-item"><span id="days">0</span> Days</div>
@@ -183,7 +183,7 @@
 
       if(diff <= 0){
         // Replace only the countdown div
-        countdownContainer.innerHTML = "<h2 style='font-size:2em; margin:20px 0;'>Event Started!</h2>";
+        // countdownContainer.innerHTML = "<h2 style='font-size:2em; margin:20px 0;'>Event Started!</h2>";
         clearInterval(timer);
         return;
       }
@@ -208,27 +208,28 @@
 
   <!-- Buttons Container -->
   <div class="buttons-container" style="display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
-    <!-- Join Contest Button -->
-    <button onclick="showAccessModal()" 
-       class="action-button" 
-       style="display: inline-block;
-              padding: 12px 30px;
-              background-color: #2F8D46;
-              color: white;
-              text-decoration: none;
-              border-radius: 5px;
-              font-weight: bold;
-              font-size: 1.1em;
-              transition: all 0.3s ease;
-              box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-              text-align: center;
-              min-width: 200px;
-              border: none;
-              cursor: pointer;">
+    <!-- Commented out Join Code Arena Contest button
+    <button class="action-button" 
+            onclick="showAccessModal()"
+            style="display: inline-block;
+                   margin: 0 10px;
+                   padding: 12px 30px;
+                   background-color: #2F8D46;
+                   color: white;
+                   text-decoration: none;
+                   border-radius: 5px;
+                   font-weight: bold;
+                   font-size: 1.1em;
+                   transition: all 0.3s ease;
+                   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                   text-align: center;
+                   min-width: 200px;
+                   border: none;
+                   cursor: pointer;">
       Join Code Arena Contest
     </button>
 
-    <!-- Download Overview Button -->
+    Commented out Download Overview Button
     <a class="action-button" 
        href="gfg-gmu.web.app\CORE ARENA EVENT OVERVIEW.pdf" 
        download="Event_Overview.pdf" 
@@ -248,8 +249,9 @@
               text-align: center;
               min-width: 200px;
               cursor: pointer;">
-      Download Event Overview
+      Download Overview
     </a>
+    -->
   </div>
 
   <!-- Email Verification Modal -->
