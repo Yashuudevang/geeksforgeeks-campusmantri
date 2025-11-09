@@ -44,6 +44,7 @@ const allowedEmails = new Set([
     'zainabali14200@gmail.com',
     'tejasakkasali148@gmail.com',
     'geeksforgeeks.campusbodygmu@gmail.com',
+    'rakshitaboragallappanavara@gmail.com',
     'sanjanagaikwad049@gmail.com',
     'pratham.ravi.m@gmail.com'
 ]);
